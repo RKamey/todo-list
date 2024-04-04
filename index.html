@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/Task.js"></script>
+    <script src="js/Componentes.js"></script>
+    <script src="js/TaskList.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <title>Todo App</title>
+</head>
+<body>
+    
+    <div class="container">
+        <img class="logo" src="img/logo.png" alt="Logo de ToDo List">
+        <h1 class="title">ToDo List</h1>
+    </div>
+
+    <div class="container add-task-container">
+        <h2 class="subtitle">Add a task</h2>
+        <div class="add-task">
+            <input  class="task-input" id="task-input" type="text" placeholder="Add something to do...">
+            <button class="add-btn" id="add-btn">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="tasks-container" id="tasks-render"></div>
+    </div>
+        
+    <script src="js/app.js"></script>
+
+</body>
+</html>

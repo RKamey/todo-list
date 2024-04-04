@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    color: #006992
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-task-container {
+    flex-direction: column;
+}
+
+.add-task {
+    background-color: #d8e4e9;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.add-task input {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.task-input:focus {
+    outline: #006992 solid 1px;
+}
+
+.add-btn {
+    background-color: #006992;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+}
+
+.task-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a3d0e3;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.delete-btn {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.complete-btn {
+    background-color: #006992;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.completed {
+    background-color: gainsboro;
+    text-decoration: line-through;
+}
