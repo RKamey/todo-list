@@ -52,6 +52,24 @@ function findTask() {
     return taskList.getTasks().find(t => t.id === taskId); // Find the task by id
 }
 
+// Edit the task by id
+function editTask() {
+    let task = findTask.call(this);
+
+    let taskName = editTaskModal(task.name);
+    
+    if (taskName) {
+        task.name = taskName;
+        saveTask();
+        renderTask();
+    }
+}
+
+function editTaskModal(taskName) {
+    let taskNameInput = prompt('Edit task', taskName);
+    return taskNameInput;
+}
+
 // Delete task
 function deleteTask() {
     let task = findTask.call(this);
@@ -68,6 +86,14 @@ function markAsComplete() {
 tasksRender.addEventListener('click', (e) => {
     if (e.target.classList.contains('delete-btn')) {
         deleteTask.call(e.target); // Call the deleteTask function and pass the button as this
+        renderTask();
+    }
+});
+
+// Edit task by clicking the edit button
+tasksRender.addEventListener('click', (e) => {
+    if (e.target.classList.contains('edit-btn')) {
+        editTask.call(e.target);
         renderTask();
     }
 });
