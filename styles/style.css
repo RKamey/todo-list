@@ -35,15 +35,6 @@ body {
     outline: #006992 solid 1px;
 }
 
-.add-btn {
-    background-color: #006992;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-}
-
 .logo {
     width: 80px;
     height: 80px;
@@ -61,25 +52,51 @@ body {
     gap: 10px;
 }
 
-.delete-btn {
-    background-color: #ff0000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
+.task-name {
+    font-weight: bold;
 }
 
-.complete-btn {
-    background-color: #006992;
+.btn {
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 8px;
-    cursor: pointer;
+    padding: 10px;
+    cursor: pointer; 
+}
+
+.add-btn, .complete-btn {
+    background-color: #006992;
+}
+
+.delete-btn {
+    background-color: #ff0000;
+}
+
+.edit-btn {
+    background-color: #0A8754;
 }
 
 .completed {
     background-color: gainsboro;
     text-decoration: line-through;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: red;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
