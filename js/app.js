@@ -5,21 +5,35 @@ const addBtn = document.querySelector('#add-btn');
 const deleteBtn = document.querySelector('#delete-btn');
 const tasksRender = document.querySelector('#tasks-render');
 
+// Load tasks when the page is loaded
+document.addEventListener('DOMContentLoaded', loadTasks);
 
 // Add task
 function addTask() {
     let task = new Task(taskInput.value);
     taskList.addTask(task);
+    saveTask();
     renderTask();
     taskInput.value = '';
 }
 
+// Save task in local storage
+function saveTask () {
+    localStorage.setItem('tasks', JSON.stringify(taskList.getTasks()));
+}
+
 // Render tasks
 function renderTask() {
-    tasksRender.innerHTML = '';
-    taskList.getTasks().forEach(t => {
-        tasksRender.innerHTML += TaskRow(t);
-    });
+    tasksRender.innerHTML = taskList.getTasks().map(t => TaskRow(t)).join('');
+}
+
+// Load tasks from local storage
+function loadTasks() {
+    let tasks = JSON.parse(localStorage.getItem('tasks'));
+    if (tasks) {
+        tasks.forEach(t => taskList.addTask(new Task(t.name, t.complete, t.id)));
+        renderTask();
+    }
 }
 
 // Add task by clicking the add button
