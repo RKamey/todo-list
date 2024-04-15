@@ -9,7 +9,8 @@ const tasksRender = document.querySelector('#tasks-render');
 document.addEventListener('DOMContentLoaded', loadTasks);
 
 // Add task
-function addTask() {
+function addTask() { 
+    if (!taskInput.value) return alert('Please enter a task');
     let task = new Task(taskInput.value);
     taskList.addTask(task);
     saveTask();
