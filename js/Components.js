@@ -5,8 +5,8 @@ const TaskRow = (task) => {
             <p class="task-name">${task.name}</p>
             <div>
                 <button class="btn complete-btn" data-taskId="${task.id}"><i class="fas fa-check"></i></button> 
-                <button class="btn delete-btn" data-taskId="${task.id}"><i class="fas fa-trash-alt"></i></button>
                 <button class="btn edit-btn" data-taskId="${task.id}"><i class="fas fa-edit"></i></button>
+                <button class="btn delete-btn" data-taskId="${task.id}"><i class="fas fa-trash-alt"></i></button>
             </div>        
         </div>
     `
