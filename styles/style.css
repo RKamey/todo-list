@@ -3,6 +3,7 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    transition: background-color 0.5s;
 }
 
 .title {
@@ -99,4 +100,50 @@ body {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+}
+
+.theme-switcher {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+#sun-icon, #moon-icon {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Styles for darkmode */
+.dark {
+    background-color: #222;
+    color: white;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.dark .title {
+    color: white;
+}
+
+.dark .add-task {
+    background-color: #444;
+}
+
+.dark .add-task input {
+    background-color: #222;
+    color: white;
+}
+
+.dark .task-row {
+    background-color: #444;
+    color: #ccc;
+}
+
+.dark .btn {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.dark .completed {
+    background-color: #666;
+    color: #ccc;
+    text-decoration-color: #666;
 }
