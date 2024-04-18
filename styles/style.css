@@ -114,6 +114,29 @@ body {
     font-size: 24px;
 }
 
+.tags { /* Container for tags */
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+.tag { /* Tag for each task */
+    display: flex;
+    background-color: #006992;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 20px;
+}
+.add-tag-btn {
+    background-color: #006992;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
 /* Styles for darkmode */
 .dark {
     background-color: #222;
@@ -177,7 +200,19 @@ body {
         margin-top: 0;
     }
 
+    .add-task input {
+        width: 400px;
+    }
+
     .task-name {
         width: 100%;
+    }
+
+    .task-row {
+        width: 440px;
+    }
+
+    .input-tags {
+        width: 340px
     }
 }
