@@ -7,7 +7,11 @@ const TaskRow = (task) => {
                 <button class="btn complete-btn" data-taskId="${task.id}"><i class="fas fa-check"></i></button> 
                 <button class="btn edit-btn" data-taskId="${task.id}"><i class="fas fa-edit"></i></button>
                 <button class="btn delete-btn" data-taskId="${task.id}"><i class="fas fa-trash-alt"></i></button>
-            </div>        
+            </div>
+            <div class="tags">
+                ${task.tags.map(tag => `<span class="tag" style="background-color: ${getColorTag(tag)};">${tag}</span>`).join('')}
+                <button class="btn add-tag-btn" data-taskId="${task.id}"><i class="fas fa-plus"></i></button>
+            </div>
         </div>
     `
 }
@@ -23,4 +27,10 @@ const TaskModalEdit = (task) => {
             </div>
         </div>
     `
+}
+
+// Get the color of the tag
+function getColorTag(tagName) {
+    const tag = predefinedTags.find(tag => tag.name === tagName.toLowerCase());
+    return tag ? tag.color : 'gray';
 }
