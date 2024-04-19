@@ -1,5 +1,6 @@
 const TaskRow = (task) => {
     const completedClass = task.complete ? 'completed' : '';
+    const tagsHTML = task.tags.map(tag => `<span class="tag" style="background-color: ${getColorTag(tag)};">${tag}</span>`).join('');
     return `
         <div class="task-row ${completedClass}">
             <p class="task-name">${task.name}</p>
@@ -9,7 +10,7 @@ const TaskRow = (task) => {
                 <button class="btn delete-btn" data-taskId="${task.id}"><i class="fas fa-trash-alt"></i></button>
             </div>
             <div class="tags">
-                ${task.tags.map(tag => `<span class="tag" style="background-color: ${getColorTag(tag)};">${tag}</span>`).join('')}
+                ${tagsHTML}
                 <button class="btn add-tag-btn" data-taskId="${task.id}"><i class="fas fa-plus"></i></button>
             </div>
         </div>
