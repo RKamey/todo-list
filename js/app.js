@@ -4,6 +4,7 @@ const taskInput = document.querySelector('#task-input');
 const addBtn = document.querySelector('#add-btn');
 const deleteBtn = document.querySelector('#delete-btn');
 const tasksRender = document.querySelector('#tasks-render');
+const addTag = document.querySelector('.add-tag-btn');
 
 // Load tasks when the page is loaded
 document.addEventListener('DOMContentLoaded', loadTasks);
@@ -25,15 +26,18 @@ function saveTask() {
 
 // Render tasks
 function renderTasks() {
+    console.log(taskList.getTasks());
     tasksRender.innerHTML = taskList.getTasks().map(t => TaskRow(t)).join('');
 }
 
 // Load tasks from local storage
 function loadTasks() {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks')); // From here we get all the tasks storde in LS
+    const storedTasks = JSON.parse(localStorage.getItem('tasks')); // From here we get all the tasks store in LS
     if (storedTasks) {
-        storedTasks.forEach(task => { // For each task in the stored tasks
-            taskList.addTask(new Task(task.name, task.complete, task.id)); // Add the task to the task list
+            storedTasks.forEach(task => {
+                const loadedTask = new Task(task.name, task.complete, task.id);
+                loadedTask.tags = task.tags;
+                taskList.addTask(loadedTask);
         });
         renderTasks();
     }
@@ -48,6 +52,23 @@ taskInput.addEventListener('keypress', (e) => {
         addTask();
     }
 });
+
+// Add tag to task
+tasksRender.addEventListener('click', (e) => {
+    if (e.target.classList.contains('add-tag-btn')) {
+        addTagToTask.call(e.target);
+    }
+});
+
+// Add tag to task
+function addTagToTask() {
+    let task = findTask.call(this);
+    let tag = prompt('Add tag');
+
+    task.addTag(tag);
+    saveTask();
+    renderTasks();
+}
 
 // Find the task by id, e is the event
 function findTask() {
@@ -88,6 +109,7 @@ function deleteTaskFromLocalStorage(taskId) {
 function markAsComplete() {
     let task = findTask.call(this);
     task.completeTask(); // Change the task status
+    saveTask();
 }
 
 // Delete task by clicking the delete button
