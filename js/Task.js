@@ -5,7 +5,7 @@ class Task {
         this.name = name;
         this.complete = complete;
         this.id = Task.taskIdCounter++;
-        this.tags = ['personal', 'trabajo', 'salud'];
+        this.tags = [];
     }
 
     completeTask() {
