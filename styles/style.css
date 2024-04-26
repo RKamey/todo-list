@@ -7,13 +7,28 @@ body {
 }
 
 .title {
-    color: #006992
+    color: #006992;
+}
+
+.title, .subtitle {
+    text-align: center;
 }
 
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.filter-label {
+    margin: 10px;
+}
+
+.filter {
+    padding: 10px;
+    border: 1px solid #f4f4f4;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .add-task-container {

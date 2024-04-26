@@ -5,6 +5,7 @@ const addBtn = document.querySelector('#add-btn');
 const deleteBtn = document.querySelector('#delete-btn');
 const tasksRender = document.querySelector('#tasks-render');
 const addTag = document.querySelector('.add-tag-btn');
+const filter = document.querySelector('.filter');
 
 // Load tasks when the page is loaded
 document.addEventListener('DOMContentLoaded', loadTasks);
@@ -40,6 +41,20 @@ function loadTasks() {
                 taskList.addTask(loadedTask);
         });
         renderTasks();
+    }
+}
+
+// Filter tasks by status (All, Completed, Uncompleted)
+function filterTasks() {
+    const status = filter.value;
+    if (status === 'all') {
+        renderTasks();
+    } else if (status === 'completed') {
+        const completedTasks = taskList.getTasks().filter(t => t.complete);
+        tasksRender.innerHTML = completedTasks.map(t => TaskRow(t)).join('');
+    } else if (status === 'uncompleted') {
+        const uncompletedTasks = taskList.getTasks().filter(t => !t.complete);
+        tasksRender.innerHTML = uncompletedTasks.map(t => TaskRow(t)).join('');
     }
 }
 
@@ -111,6 +126,9 @@ function markAsComplete() {
     task.completeTask(); // Change the task status
     saveTask();
 }
+
+// Filter tasks by status
+filter.addEventListener('change', filterTasks);
 
 // Delete task by clicking the delete button
 tasksRender.addEventListener('click', (e) => {
