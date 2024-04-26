@@ -36,10 +36,21 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="tasks-container" id="tasks-render"></div>
-    </div>
-        
+    <div class="container"> 
+        <div class="filter-container">
+            <h2 class="subtitle">Tasks</h2>
+            <label for="filter" class="filter-label">Filter by:</label>
+            <select name="filter" id="filter" class="filter">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="uncompleted">Uncompleted</option>
+            </select>
+            
+            <div class="container">
+                <div class="tasks-container" id="tasks-render"></div>
+            </div>
+        </div>
+            
     <script src="js/app.js"></script>
     <script src="js/darkMode.js"></script>
 </body>
