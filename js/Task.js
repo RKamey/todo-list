@@ -1,4 +1,4 @@
-export class Task {
+class Task {
     static taskIdCounter = 1;
 
     constructor(name, complete = false) {
