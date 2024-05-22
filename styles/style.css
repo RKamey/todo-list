@@ -8,6 +8,7 @@ body {
 
 .title {
     color: #006992;
+    font-weight: bold;
 }
 
 .title, .subtitle {
